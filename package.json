@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.4",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-markdown": "^6.3.2",
+    "@codemirror/lang-sql": "^6.9.0",
+    "codemirror": "^6.0.1"
+  },
+  "name": "python_compiler",
+  "description": "本指南将帮助您为Python在线编译器配置DNS服务和SSL加密。",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

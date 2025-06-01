@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线Python编译器 - 实时编写、运行和调试Python代码的简单方式">
+    <meta name="keywords" content="Python, 编译器, 在线编程, 代码编辑器, IDE, 编程学习">
+    <meta name="author" content="Python在线编译器">
+    <meta name="theme-color" content="#4a90e2">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Python在线编译器">
+    <meta property="og:description" content="实时编写、运行和调试Python代码的简单方式">
+    <meta property="og:type" content="website">
+    
+    <title>Python在线编译器 - 实时编码与运行</title>
+    
+    <!-- CodeMirror 核心样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/codemirror/codemirror.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/codemirror/theme/monokai.min.css') }}">
+    
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="container" role="main">
+        <header>
+            <h1>Python在线编译器</h1>
+            <nav class="main-nav">
+                <a href="/data-analysis" class="nav-link" title="数据分析编辑器">
+                    <span class="nav-icon">📊</span> 数据分析编辑器
+                </a>
+            </nav>
+        </header>
+        
+        <section class="editor-container" aria-label="代码编辑区">
+            <div class="editor-toolbar" role="toolbar" aria-label="编辑器工具栏">
+                <select id="theme-selector" class="theme-selector" aria-label="选择编辑器主题">
+                    <option value="default">默认主题</option>
+                    <option value="monokai" selected>Monokai</option>
+                </select>
+                <div class="editor-actions">
+                    <button class="toolbar-btn" id="format-code" title="格式化代码" aria-label="格式化代码">
+                        格式化代码
+                    </button>
+                    <button class="toolbar-btn" id="toggle-wrap" title="切换自动换行" aria-label="切换自动换行">
+                        自动换行
+                    </button>
+                </div>
+            </div>
+            <textarea id="code-editor" aria-label="Python代码编辑器">print("Hello, World!")</textarea>
+        </section>
+        
+        <section class="button-container">
+            <button id="run-button" class="primary-button" aria-label="运行代码">
+                运行代码
+            </button>
+            <button id="clear-button" class="danger-button" aria-label="清除输出">
+                清除输出
+            </button>
+        </section>
+        
+        <section class="output-container" aria-label="输出结果区域">
+            <div class="output-header">
+                <h3>输出结果</h3>
+                <button id="copy-output" class="icon-button" title="复制输出内容" aria-label="复制输出内容">
+                    复制结果
+                </button>
+            </div>
+            <div class="output-content"></div>
+                <pre id="output" aria-live="polite" role="log"></pre>
+                <pre id="error" class="error" aria-live="polite" role="alert"></pre>
+            </div>
+        </section>
+
+        <footer class="keyboard-shortcuts" aria-label="键盘快捷键说明">
+            <p class="shortcut-hint">
+                快捷键提示: 按下 <kbd>Ctrl</kbd> + <kbd>Enter</kbd> 运行代码
+            </p>
+        </footer>
+    </main>
+
+    <!-- CodeMirror 核心脚本 -->
+    <script src="{{ url_for('static', filename='lib/codemirror/codemirror.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/codemirror/mode/python/python.min.js') }}"></script>
+    
+    <!-- 自定义脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
